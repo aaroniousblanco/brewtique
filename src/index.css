@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.header {
+    padding: 0px 40px;
+    background-color: grey;
+}
+
+.header img {
+    width: 60px;
+    display: inline-block;
+    margin-bottom: -9px;
+}
+
+.main-content {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.home-title {
+    font-size: 40px;
+    font-family: 'Inknut Antiqua', serif;
+    color: #F4B50E;
+    display: inline-block;
+    margin-left: 35%;
+}
+
+.product-images {
+    padding: 0px 10% 0px 10%;
+    float: left;
+}
+
+.product-images input {
+    margin: 20px;
+    height: 250px;
+}
+
+.product-page-content img {
+    margin: 20px;
+    width: 300px;
+    float: left;
+}
+
+.product-page-content h1 {
+    margin-left: 30px;
+}
+
+.product-page-content p {
+
+}
