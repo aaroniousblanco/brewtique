@@ -12,7 +12,28 @@ body {
 .header img {
     width: 60px;
     display: inline-block;
-    margin-bottom: -9px;
+    margin-bottom: 20px;
+}
+
+.sign-up-login {
+    float: right;
+}
+
+.signup_link {
+    display: inline-block;
+    margin-top: 32px;
+    margin-right: 10px;
+    font-size: 17px;
+    font-family: sans-serif;
+    color: #F4B50E;
+}
+
+.login_link {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 17px;
+    font-family: sans-serif;
+    color: #F4B50E;
 }
 
 .main-content {
@@ -27,6 +48,7 @@ body {
     color: #F4B50E;
     display: inline-block;
     margin-left: 35%;
+    margin-top: 14px;
 }
 
 .product-images {
@@ -35,20 +57,41 @@ body {
 }
 
 .product-images input {
-    margin: 20px;
+    margin: 15px;
     height: 250px;
 }
 
 .product-page-content img {
-    margin: 20px;
+    margin: 20px 20px 20px 100px;
     width: 300px;
     float: left;
 }
 
 .product-page-content h1 {
-    margin-left: 30px;
+    margin-left: 100px;
 }
 
-.product-page-content p {
+.signup-content h3 {
+    margin: 30px 0px 0px 0px;
+    text-align: center;
+    color: grey;
+}
 
+.form-group {
+    margin: 20px 250px 50px 250px;
+}
+
+.form-control {
+    margin: 10px 0px 20px 0px;
+}
+
+.btn-success {
+    border-radius: 0;
+    margin-left: 48%;
+    margin-bottom: 30px;
+    margin-top: -20px;
+}
+
+.sign-up-error-message {
+    color: red
 }

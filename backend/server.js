@@ -31,30 +31,30 @@ app.get('/api/products/:id', (req, resp, next) => {
 
 // This API allows a new user to sign up. The request body will be in JSON format.
 app.post('/api/user/signup', (req, resp, next) => {
-    var info = req.body; //update this once front end is built
+    var info = req.body.info; //update this once front end is built
     bcrypt.hash(info.password, 10)
     .then(encryptedPassword => {
-        return db.one(`insert into users (username, first_name, last_name, email_address, password) values ($1, $2, $3, $4, $5) returning username, first_name, last_name, email_address`, [info.username, info.email_address, info.first_name, info.last_name, encryptedPassword]);
+        return db.one(`insert into users (username, first_name, last_name, email_address, password) values ($1, $2, $3, $4, $5) returning username, first_name, last_name, email_address`, [info.username,  info.first_name, info.last_name, info.email_address, encryptedPassword]);
     })
+    .then(result => resp.json(result))
     .catch(next);
 });
 
 // This API handles user logins.
 app.post('/api/user/login', (req, resp, next) => {
-    db.one(`select * from users where username = $1`, [req.body.username])
+    db.one(`select * from users where username = $1`, [req.body.info.username])
     .then(result => {
-        return [bcrypt.compare(req.body.password, result.password), result];
+        return [bcrypt.compare(req.body.info.password, result.password), result];
     })
     .spread((matched, result) => {
         if (matched) {
             let token = uuid.v4();
-            resp.json({auth_token: token, username: req.body.username, first_name: result.first_name, last_name: result.last_name});
+            resp.json({auth_token: token, username: req.body.info.username, first_name: result.first_name, last_name: result.last_name});
             return db.one(`insert into auth_tokens (auth_token, user_name)
-            values ($1, $2)`, [token, req.body.username])
-        } else {
-            return 401; //is this right??
+            values ($1, $2)`, [token, req.body.info.username])
         }
     })
+    .then(result => resp.json(result))
     .catch(next);
 });
 
